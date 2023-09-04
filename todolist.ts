@@ -6,10 +6,10 @@ class Tarefa {
         this.concluida = concluida;
     };
 
-    /*public set setConcluida(concluida: boolean) {
+    public set setConcluida(concluida: any) {
         this.concluida = concluida;
     }
-
+    /*
     public get getDescricao(): string {
         return this.concluida ? this.descricao + ' (Concluída)' : this.descricao + ' (Pendente)';
     }
@@ -23,6 +23,7 @@ class ListaDeTarefas {
         this.tarefas.push({
             descricao: descricao,
             concluida: false,
+            setConcluida: false,
         });
     }
 };
@@ -38,6 +39,10 @@ const lista = new ListaDeTarefas;
 lista.adicionarTarefa('teste');
 lista.adicionarTarefa('teste2');
 
-console.log(lista);
+console.table(lista.tarefas);
+
+lista.tarefas[0].setConcluida = true;
+
+console.table(lista.tarefas);
 
 
